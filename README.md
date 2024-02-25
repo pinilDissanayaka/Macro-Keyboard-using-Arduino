@@ -20,13 +20,13 @@ Introducing the Arduino Pro Micro Macro Keypad, a versatile and compact input de
 
 ### Specifications:
 
-Microcontroller: ATmega32U4
-Operating Voltage: 5V
-Digital I/O Pins: 18
-PWM Channels: 7
-Analog Input Pins: 12
-Flash Memory: 32 KB (4 KB used by bootloader)
-SRAM: 2.5 KB
-EEPROM: 1 KB
-Clock Speed: 16 MHz
-Dimensions: (L x W x H) 75mm x 50mm x 15mm
+* Microcontroller: ATmega32U4
+* Operating Voltage: 5V
+* Digital I/O Pins: 18
+* PWM Channels: 7
+* Analog Input Pins: 12
+* Flash Memory: 32 KB (4 KB used by bootloader)
+* SRAM: 2.5 KB
+* EEPROM: 1 KB
+* Clock Speed: 16 MHz
+* Dimensions: (L x W x H) 75mm x 50mm x 15mm
