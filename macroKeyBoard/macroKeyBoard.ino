@@ -1,4 +1,5 @@
 #include <Keypad.h>
+#include <Wire.h>
 #include <Encoder.h>
 #include <Bounce2.h>
 #include "HID-Project.h"
@@ -36,8 +37,8 @@ const int debounceTime = 50;
 
 //Encoder
 int SW = 19;
-int DT = 2;
-int CLK = 3;
+int DT = 0;
+int CLK = 1;
 Encoder volumeKnob(DT,CLK);
 Bounce encoderButton = Bounce(SW,10);
 int timeLimit = 500;
