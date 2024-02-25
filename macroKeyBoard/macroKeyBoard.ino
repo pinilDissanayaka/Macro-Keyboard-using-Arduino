@@ -23,13 +23,8 @@ byte rowPins[ROWS] = {R1, R2, R3, R4};
 byte colPins[COLS] = {C1, C2, C3};
 Keypad kpd = Keypad( makeKeymap(keys), colPins, rowPins, COLS, ROWS);
 
-//State LED pins
-int S1 = 15;
-int S2 = 14;
-int S3 = 16;
-int S4 = 10;
+
 const int numStates = 4;
-const int States[numStates] = {S1, S2, S3, S4};
 int currentState = 0;
 
 int lastDebounceTime = 0;
@@ -48,11 +43,6 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
 
-  for (int i = 0; i < numStates; i++){
-    pinMode(States[i], OUTPUT);
-    digitalWrite(States[i], LOW);
-  }
-
   pinMode(CLK, INPUT_PULLUP);
 
   Keyboard.begin();
@@ -60,38 +50,14 @@ void setup() {
 
   Serial.print("Ready");
 
-  StartAnimation();
-  digitalWrite(States[currentState], HIGH);
 }
 
-void StartAnimation(){
-  int waitTime = 250;
-  digitalWrite(S1, HIGH);
-  delay(waitTime);
-  digitalWrite(S2, HIGH);
-  delay(waitTime);
-  digitalWrite(S3, HIGH);
-  delay(waitTime);
-  digitalWrite(S4, HIGH);
-  delay(waitTime);
-  digitalWrite(S1, LOW);
-  delay(waitTime);
-  digitalWrite(S2, LOW);
-  delay(waitTime);
-  digitalWrite(S3, LOW);
-  delay(waitTime);
-  digitalWrite(S4, LOW);
-  delay(waitTime);
-  return;
-}
 
 void changeStateUp(){
-  digitalWrite(States[currentState], LOW);
   currentState++;
   if (currentState == numStates){
     currentState = 0;
   }
-  digitalWrite(States[currentState], HIGH);
   //Serial.print("State Changed. Current State: "); 
   //Serial.println(currentState);
   delay(100);
@@ -99,12 +65,11 @@ void changeStateUp(){
 }
 
 void changeStateDown(){
-  digitalWrite(States[currentState], LOW);
   currentState--;
   if (currentState == 0){
     currentState = numStates;
   }
-  digitalWrite(States[currentState], HIGH);
+ 
   //Serial.print("State Changed. Current State: "); 
   //Serial.println(currentState);
   delay(100);
